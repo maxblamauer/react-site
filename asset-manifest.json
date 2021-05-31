@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/react-site/static/css/main.7bc6e6e7.chunk.css",
+    "main.js": "/react-site/static/js/main.84d884a9.chunk.js",
+    "main.js.map": "/react-site/static/js/main.84d884a9.chunk.js.map",
+    "runtime-main.js": "/react-site/static/js/runtime-main.eb8f470f.js",
+    "runtime-main.js.map": "/react-site/static/js/runtime-main.eb8f470f.js.map",
+    "static/js/2.24329819.chunk.js": "/react-site/static/js/2.24329819.chunk.js",
+    "static/js/2.24329819.chunk.js.map": "/react-site/static/js/2.24329819.chunk.js.map",
+    "index.html": "/react-site/index.html",
+    "static/css/main.7bc6e6e7.chunk.css.map": "/react-site/static/css/main.7bc6e6e7.chunk.css.map",
+    "static/js/2.24329819.chunk.js.LICENSE.txt": "/react-site/static/js/2.24329819.chunk.js.LICENSE.txt",
+    "static/media/stevieDock.74034d85.png": "/react-site/static/media/stevieDock.74034d85.png",
+    "static/media/stevieDock2.dd20a299.png": "/react-site/static/media/stevieDock2.dd20a299.png",
+    "static/media/stevieDock3.9745103a.png": "/react-site/static/media/stevieDock3.9745103a.png",
+    "static/media/stevieDock4.9f6d97d4.png": "/react-site/static/media/stevieDock4.9f6d97d4.png",
+    "static/media/stevieRock.18d61f3b.png": "/react-site/static/media/stevieRock.18d61f3b.png",
+    "static/media/walking.790647e5.png": "/react-site/static/media/walking.790647e5.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.eb8f470f.js",
+    "static/js/2.24329819.chunk.js",
+    "static/css/main.7bc6e6e7.chunk.css",
+    "static/js/main.84d884a9.chunk.js"
+  ]
+}
