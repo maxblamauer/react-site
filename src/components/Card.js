@@ -22,7 +22,7 @@ export default function Card(props) {
       </div>
       <div className="card-button">
             <button>
-                <a className="card-button-link">
+                <a className="card-button-link" href="">
                     View More
                 </a>
             </button>
