@@ -12,6 +12,12 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+
+      <div>
+        <h1 className="home-header">Gallary</h1>
+      </div>
+
+      <div className="card-section">
       <Card
         title="Calm and relaxed"
         imageUrl={stevie}
@@ -42,6 +48,7 @@ function App() {
         imageUrl={stevieRock}
         body="Stevie posing on a rock so her best friend can take a picture of her Photo taken by: @dallasblissphotography"
       />
+      </div>
     </div>
   );
 }
