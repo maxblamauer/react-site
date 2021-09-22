@@ -7,9 +7,25 @@ import stevie3 from "./images/stevieDock3.png";
 import stevie4 from "./images/stevieDock4.png";
 import walking from "./images/walking.png";
 import stevieRock from "./images/stevieRock.png";
+import React from "react";
+import Signup from "./components/Signup";
+import { Container } from "react-bootstrap";
+import { AuthProvider } from "./Contexts/AuthContext";
 
 function App() {
   return (
+    <AuthProvider>
+      <Container
+        className="d-flex align-items-center justify-content-center"
+        style={{ minHeight: "100vh" }}
+      >
+        <div className="w-100" style={{ maxWidth: "400px" }}>
+          <Signup />
+        </div>
+      </Container>
+    </AuthProvider>
+
+    /* 
     <div className="App">
       <Navbar />
       <Card
@@ -42,7 +58,7 @@ function App() {
         imageUrl={stevieRock}
         body="Stevie posing on a rock so her best friend can take a picture of her Photo taken by: @dallasblissphotography"
       />
-    </div>
+    </div>  */
   );
 }
 
