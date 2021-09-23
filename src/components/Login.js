@@ -1,8 +1,10 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
-import { useAuth } from "../Contexts/AuthContext";
-import { Link, useHistory } from "react-router-dom";
+import { AuthProvider, useAuth } from "../Contexts/AuthContext";
+import { Link, useHistory, Redirect } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import socialMediaAuth from "../Contexts/AuthSocialMedia";
+import { googleProvider } from "../Contexts/AuthMethods";
 
 export default function Login() {
   const emailRef = useRef();
@@ -26,6 +28,13 @@ export default function Login() {
     setLoading(false);
   }
 
+  const handleOnClick = async (provider) => {
+    const result = await socialMediaAuth(provider);
+
+
+    
+  };
+
   return (
     <>
       <Container
@@ -48,6 +57,13 @@ export default function Login() {
                 </Form.Group>
                 <Button disabled={loading} className="w-100 mt-3" type="submit">
                   Log In
+                </Button>
+                <Button
+                  disabled={loading}
+                  className="w-100 mt-3"
+                  onClick={() => handleOnClick(googleProvider)}
+                >
+                  Login with Google
                 </Button>
               </Form>
               <div className="w-100 text-center mt-3">
