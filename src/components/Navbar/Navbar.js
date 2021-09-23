@@ -4,6 +4,7 @@ import '../componentStyles/Navbar.css';
 
 class Navbar extends Component {
     state = { clicked: false }
+    
 
     handleClick = () => {
         this.setState({ clicked: !this.state.clicked })
@@ -12,7 +13,7 @@ class Navbar extends Component {
     render() {
         return(
             <nav className="NavbarItems">
-                <h1 className="navbar-logo">Max<i className="fab fa-creative-commons-sampling"></i></h1>
+                <h4 className="navbar-logo">{this.props.email}</h4>
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                 </div>
