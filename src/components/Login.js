@@ -3,6 +3,8 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../Contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import GoogleButton from 'react-google-button';
+import {signInWithGoogle} from '../firebase';
 
 export default function Login() {
   const emailRef = useRef();
@@ -24,6 +26,20 @@ export default function Login() {
       setError("The email and password do not match");
     }
     setLoading(false);
+  }
+
+  async function handleGoogleAuth(){
+    try {
+      const result = await signInWithGoogle()
+
+      localStorage.setItem("displayName", result.user.displayName);
+      localStorage.setItem("email", result.user.email);
+      localStorage.setItem("profilePic", result.user.photoURLPic);
+      history.push("/");
+    } catch{
+      setError("Google account does not exist");
+    }
+
   }
 
   return (
@@ -49,6 +65,10 @@ export default function Login() {
                 <Button disabled={loading} className="w-100 mt-3" type="submit">
                   Log In
                 </Button>
+                <GoogleButton
+                  className="w-100 mt-3"
+                  onClick={handleGoogleAuth}
+                />
               </Form>
               <div className="w-100 text-center mt-3">
                 <Link to="/forgot-password">Forgot password?</Link>
