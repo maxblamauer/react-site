@@ -4,14 +4,32 @@ import "firebase/compat/auth";
 
 const app = firebase.initializeApp({
 
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: process.env.REACT_APP_FIREBASE_API_AUTH_DOMAIN,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID,
-    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+  apiKey: "AIzaSyCQuwi_nHuNj1JO6k0z9FatA4y6FyseAJk",
+  authDomain: "react-site-75805.firebaseapp.com",
+  projectId: "react-site-75805",
+  storageBucket: "react-site-75805.appspot.com",
+  messagingSenderId: "504673270218",
+  appId: "1:504673270218:web:40820d48ddb60258327733",
+  measurementId: "G-PZ9RC7VBZH"
 
   })
   export const auth = app.auth()
   export default app
+
+  var provider = new firebase.auth.GoogleAuthProvider();
+
+  export const signInWithGoogle = () => firebase.auth().signInWithPopup(provider);
+  
+  // {
+  //   firebase.auth().signInWithPopup(provider).then(function(result) {
+  //     const displayName = result.user.displayName;
+  //     const email = result.user.email;
+  //     const profilePic = result.user.photoURL;
+
+  //     localStorage.setItem("displayName", displayName);
+  //     localStorage.setItem("email", email);
+  //     localStorage.setItem("profilePic", profilePic);
+  //     <PrivateRoute exact path="/" component={Dashboard} />
+  //   });
+  // }
+
