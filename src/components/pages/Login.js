@@ -1,18 +1,20 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
-import { useAuth } from "../Contexts/AuthContext";
-import { Link, useHistory } from "react-router-dom";
+import { useAuth } from "../../Contexts/AuthContext";
+import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import GoogleButton from 'react-google-button';
-import {signInWithGoogle} from '../firebase';
+import { signInWithGoogle } from '../utils/firebase';
+import { useNavigate, useLocation } from "react-router";
 
-export default function Login() {
+const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const { login } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -21,7 +23,11 @@ export default function Login() {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/");
+
+      if(location.state?.from){
+        navigate(location.state.from)
+      }
+
     } catch {
       setError("The email and password do not match");
     }
@@ -32,10 +38,15 @@ export default function Login() {
     try {
       const result = await signInWithGoogle()
 
+      // temporary
       localStorage.setItem("displayName", result.user.displayName);
       localStorage.setItem("email", result.user.email);
-      localStorage.setItem("profilePic", result.user.photoURLPic);
-      history.push("/");
+      localStorage.setItem("profilePic", result.user.photoURL);
+
+      if(location.state?.from){
+        navigate(location.state.from)
+      }
+
     } catch{
       setError("Google account does not exist");
     }
@@ -83,3 +94,5 @@ export default function Login() {
     </>
   );
 }
+
+export default Login;

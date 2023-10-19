@@ -13,23 +13,11 @@ const app = firebase.initializeApp({
   measurementId: "G-PZ9RC7VBZH"
 
   })
+
   export const auth = app.auth()
   export default app
 
   var provider = new firebase.auth.GoogleAuthProvider();
 
   export const signInWithGoogle = () => firebase.auth().signInWithPopup(provider);
-  
-  // {
-  //   firebase.auth().signInWithPopup(provider).then(function(result) {
-  //     const displayName = result.user.displayName;
-  //     const email = result.user.email;
-  //     const profilePic = result.user.photoURL;
-
-  //     localStorage.setItem("displayName", displayName);
-  //     localStorage.setItem("email", email);
-  //     localStorage.setItem("profilePic", profilePic);
-  //     <PrivateRoute exact path="/" component={Dashboard} />
-  //   });
-  // }
 

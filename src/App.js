@@ -1,26 +1,28 @@
 import "./App.css";
 import React from "react";
-import Signup from "./components/Signup";
+import Signup from "./components/pages/Signup";
 import { AuthProvider } from "./Contexts/AuthContext";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Dashboard from "./components/Dashboard.js";
-import Login from "./components/Login.js";
-import PrivateRoute from "./components/PrivateRoute";
-import ForgotPassword from "./components/ForgotPassword";
-import UpdateProfile from "./components/UpdateProfile";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from "./components/pages/Dashboard.js";
+import Login from "./components/pages/Login.js";
+import PrivateRoutes from "./components/utils/PrivateRoutes";
+import ForgotPassword from "./components/pages/ForgotPassword";
+import UpdateProfile from "./components/pages/UpdateProfile";
 
 function App() {
   return (
     <>
       <Router>
         <AuthProvider>
-          <Switch>
-            <PrivateRoute exact path="/" component={Dashboard} />
-            <PrivateRoute path="/update-profile" component={UpdateProfile} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/forgot-password" component={ForgotPassword} />
-          </Switch>
+          <Routes>
+            <Route element={<PrivateRoutes />}>
+              <Route element={<Dashboard />} path="/" exact/>
+              <Route element={<UpdateProfile />} path="/update-profile"/>
+            </Route>
+            <Route element={<Login />} path="/login"  />
+            <Route element={<Signup />} path="/signup" />
+            <Route element={<ForgotPassword />} path="/forgot-password" />
+          </Routes>
         </AuthProvider>
       </Router>
     </>
