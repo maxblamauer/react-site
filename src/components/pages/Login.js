@@ -4,7 +4,8 @@ import { useAuth } from "../../Contexts/AuthContext";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import GoogleButton from 'react-google-button';
-import {signInWithGoogle} from '../utils/firebase';
+import { signInWithGoogle } from '../utils/firebase';
+import { useNavigate, useLocation } from "react-router";
 
 const Login = () => {
   const emailRef = useRef();
@@ -12,6 +13,8 @@ const Login = () => {
   const { login } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -20,6 +23,11 @@ const Login = () => {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
+
+      if(location.state?.from){
+        navigate(location.state.from)
+      }
+
     } catch {
       setError("The email and password do not match");
     }
@@ -30,9 +38,14 @@ const Login = () => {
     try {
       const result = await signInWithGoogle()
 
+      // temporary
       localStorage.setItem("displayName", result.user.displayName);
       localStorage.setItem("email", result.user.email);
       localStorage.setItem("profilePic", result.user.photoURL);
+
+      if(location.state?.from){
+        navigate(location.state.from)
+      }
 
     } catch{
       setError("Google account does not exist");
