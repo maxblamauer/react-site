@@ -26,6 +26,8 @@ const Login = () => {
 
       if(location.state?.from){
         navigate(location.state.from)
+      } else{
+        navigate("/")
       }
 
     } catch {
@@ -36,21 +38,17 @@ const Login = () => {
 
   async function handleGoogleAuth(){
     try {
-      const result = await signInWithGoogle()
-
-      // temporary
-      localStorage.setItem("displayName", result.user.displayName);
-      localStorage.setItem("email", result.user.email);
-      localStorage.setItem("profilePic", result.user.photoURL);
+      await signInWithGoogle()
 
       if(location.state?.from){
         navigate(location.state.from)
+      } else{
+        navigate("/")
       }
 
     } catch{
       setError("Google account does not exist");
     }
-
   }
 
   return (

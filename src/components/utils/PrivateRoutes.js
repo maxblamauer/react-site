@@ -6,7 +6,6 @@ import { useAuth } from "../../Contexts/AuthContext";
 const PrivateRoutes = () => {
     const { currentUser } = useAuth()
     const location = useLocation();
-    console.log(currentUser)
     return (
           currentUser ? <Outlet/> : <Navigate to="/login" replace state={{from: location}} />
     )
