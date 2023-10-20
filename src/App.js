@@ -8,6 +8,7 @@ import Login from "./components/pages/Login.js";
 import PrivateRoutes from "./components/utils/PrivateRoutes";
 import ForgotPassword from "./components/pages/ForgotPassword";
 import UpdateProfile from "./components/pages/UpdateProfile";
+import Resume from "./components/pages/Resume"
 
 function App() {
   return (
@@ -18,10 +19,13 @@ function App() {
             <Route element={<PrivateRoutes />}>
               <Route element={<Dashboard />} path="/" exact/>
               <Route element={<UpdateProfile />} path="/update-profile"/>
+              <Route element={<Dashboard />} path="/react-site"/>
+
             </Route>
             <Route element={<Login />} path="/login"  />
             <Route element={<Signup />} path="/signup" />
             <Route element={<ForgotPassword />} path="/forgot-password" />
+            <Route element={<Resume />} path="/resume"  />
           </Routes>
         </AuthProvider>
       </Router>

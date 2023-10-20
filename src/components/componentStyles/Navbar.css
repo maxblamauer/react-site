@@ -1,0 +1,24 @@
+img {
+    border-radius: 50%;
+}
+.navbar > .container {
+    max-width: 100%;
+    margin: 0;
+    padding-left: 1%;
+    color: #fff;
+    &:hover {
+      color: #fb7840;
+    }
+  }
+  
+  .navbar {
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar-nav .nav-link {
+    color: #fff;
+    &:hover {
+      color: #fb7840;
+    }
+  }
