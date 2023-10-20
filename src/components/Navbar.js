@@ -20,7 +20,7 @@ const NavBar = () => {
     <>
     <Navbar bg="dark" data-bs-theme="dark">
       <Container>
-        <Navbar.Brand style={{color:"white"}} href="#home">
+        <Navbar.Brand style={{color:"white"}} href="/">
         <img
               src={currentUser.multiFactor.user.photoURL ? currentUser.multiFactor.user.photoURL : defaultUser}
               width="30"
@@ -30,7 +30,7 @@ const NavBar = () => {
             />
             </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link style={{color:"white"}} href="#home">Home</Nav.Link>
+            <Nav.Link style={{color:"white"}} href="/">Home</Nav.Link>
             <Nav.Link style={{color:"white"}} href="/resume">Resume</Nav.Link>
             <Nav.Link style={{color:"white"}} href="/login" onClick={handleClick}>Signout</Nav.Link>
           </Nav>

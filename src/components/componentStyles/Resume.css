@@ -1,11 +1,52 @@
-.card-container{
-    width: 300px;
+.header-container{
     margin: 30px;
     overflow: hidden;
-    box-shadow: 0px 0px 15px -5px;
+    border-style: solid;
     transition: 0.5s;
     animation: ease-in-out;
-    float: left;
+    margin: auto;
+    width: 80%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    margin-top: 10px;
+}
+
+.resume-header{
+    text-align: center;
+}
+.resume-body{
+    text-align: center;
+}
+
+.left-body {
+    float:left; /* add this */
+    border-right: solid;
+    width: 30%;
+    height:100%
+}
+
+.right-body {
+    float: left; /* add this */
+    width: 70%;
+    height:100%
+}
+
+
+.body-container {
+    height: 100vh;
+    margin: 30px;
+    overflow: hidden;
+    border-style: solid;
+    transition: 0.5s;
+    animation: ease-in-out;
+    margin: auto;
+    width: 80%;
+    border: 1px solid black;
+    overflow: hidden; /* add this to contain floated children */
+
 }
 
 .card-container:hover{
